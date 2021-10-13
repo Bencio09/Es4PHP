@@ -17,17 +17,17 @@
                             <table>
                                 <tr>
                                     <th style='border: 15px solid transparent;'><label>NOME: </label></th>
-                                    <th style='border: 15px solid transparent;'><input type='text' required name='name'></th>
+                                    <th style='border: 15px solid transparent;'><input type='text' required name='name' value=''></th>
                                 </tr>
                                 <br>
                                 <tr>
                                     <th style='border: 15px solid transparent;'><label>SECONDO NOME: </label></th>
-                                    <th style='border: 15px solid transparent;'><input type='text' name='name2'></th>
+                                    <th style='border: 15px solid transparent;'><input type='text' name='name2' value=''></th>
                                 </tr>
                                 <br>
                                 <tr>
                                     <th style='border: 15px solid transparent;'><label>COGNOME: </label></th>
-                                    <th style='border: 15px solid transparent;'><input type='text' name='surname'required></th>
+                                    <th style='border: 15px solid transparent;'><input type='text' name='surname'required value=''></th>
                                 </tr>
                                 <br>
                                 <br>
@@ -61,11 +61,43 @@
                         </div>
                     </form>
                 ";
-                $studenti[$nominativo];
-                $nominativo = $_GET["name"]." ".$_GET["surname"];
-                $nMaterie[]//deve inserire le materie nell'array
-                if(){
-                    
+                $materie = array();
+                $nominativo = array();
+                //echo var_dump($_GET);
+                if (isset($_GET["name2"])) {
+                    $nominativo = $_GET["name"]. " " .$_GET["name2"]. " " .$_GET["surname"];
+                }elseif (!isset($_GET["name2"])) {
+                    $nominativo = $_GET["name"]. " " .$_GET["surname"];
+                }
+                
+                
+                if(isset($_GET["ita"])){
+                    $materie[$_GET["ita"]];
+                }elseif(isset($_GET["mate"])){
+                    $materie[$_GET["mate"]];
+                }elseif(isset($_GET["tel"])){
+                    $materie[$_GET["tel"]];
+                }elseif(isset($_GET["inf"])){
+                    $materie[$_GET["inf"]];
+                }elseif(isset($_GET["tpsit"])){
+                    $materie[$_GET["tpsit"]];
+                }elseif(isset($_GET["sist&reti"])){
+                    $materie[$_GET["sist&reti"]];
+                }elseif(isset($_GET["ing"])){
+                    $materie[$_GET["ing"]];
+                }
+                if(count($materie) >= 3){
+                    if (isset($_GET["male"])) {
+                        $studenti[$nominativo] = " non ammesso";
+                    }elseif(isset($_GET["female"])){
+                        $studenti[$nominativo] = " non ammessa";
+                    }
+                }elseif(count($materie) <= 2){
+                    if (isset($_GET["male"])) {
+                        $studenti[$nominativo] = " ammesso";
+                    }elseif(isset($_GET["female"])){
+                        $studenti[$nominativo] = " ammessa";
+                    }
                 }
             ?>
             
