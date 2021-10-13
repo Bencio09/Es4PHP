@@ -2,7 +2,8 @@
 <html>
     <head>
         <?php
-            session_start()
+            session_start();
+            error_reporting(E_ALL & ~E_WARNING);
         ?>
         <link rel="stylesheet" href="CSS/bootstrap.css">
         <link rel="stylesheet" href="CSS/MyStyle.css">
