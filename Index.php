@@ -3,7 +3,7 @@
     <head>
         <?php
             session_start();
-            error_reporting(E_ALL & ~E_WARNING);
+            //error_reporting(E_ALL & ~E_WARNING);
         ?>
         <link rel="stylesheet" href="CSS/bootstrap.css">
         <link rel="stylesheet" href="CSS/MyStyle.css">
@@ -37,10 +37,10 @@
                         <div style='margin-left: 25%;'>
                             <table>
                                 <tr>
-                                    <th style='border: 15px solid transparent;'><input type='radio' name='male'> MASCHIO</th>
+                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='MASCHIO'> MASCHIO</th>
                                 </tr>
                                 <tr>
-                                    <th style='border: 15px solid transparent;'><input type='radio' name='female'> FEMMINA</th>
+                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='FEMMINA'> FEMMINA</th>
                                 </tr>
                             </table>
                         </div>
@@ -63,7 +63,7 @@
                     </form>
                 ";
                 $materie = array();
-                $nominativo = array();
+                $nominativo = "";
                 //echo var_dump($_GET);
                 if (isset($_GET["name2"])) {
                     $nominativo = $_GET["name"]. " " .$_GET["name2"]. " " .$_GET["surname"];
