@@ -11,9 +11,7 @@
     </head>
     <body>
         <div class="container" id="ins" style="margin-top: 10%;">
-            <?php
-                echo "
-                    <form action=$_SERVER[PHP_SELF] method='GET'>
+                    <form action='./Function/MostraStudenti.php' method='GET'>
                         <div style='margin-left: 25%;'>
                             <table>
                                 <tr>
@@ -37,23 +35,23 @@
                         <div style='margin-left: 25%;'>
                             <table>
                                 <tr>
-                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='MASCHIO'> MASCHIO</th>
+                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='M'> MASCHIO</th>
                                 </tr>
                                 <tr>
-                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='FEMMINA'> FEMMINA</th>
+                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='F'> FEMMINA</th>
                                 </tr>
                             </table>
                         </div>
                         <div style='margin-left: 12.5%;'>
                             <table>
                                 <tr>
-                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='ita'> ITALIANO</th>
-                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='mate'> MATEMATICA</th>
-                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='inf'> INFORMATICA</th>
-                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='tel'> TELECOMUNICAZIONI</th>
-                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='ing'> INGLESE</th>
-                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='tpsit'> TPSIT</th>
-                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='sist&reti'> SISTEMI E RETI</th>
+                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='ita' value='Italiano'> ITALIANO</th>
+                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='mate' value='Matematica'> MATEMATICA</th>
+                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='inf' value='Informatica'> INFORMATICA</th>
+                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='tel' value='Telecomunicazioni'> TELECOMUNICAZIONI</th>
+                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='ing' value='Inglese'> INGLESE</th>
+                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='tpsit' value='TPSIT'> TPSIT</th>
+                                    <th style='border: 15px solid transparent;'><input type='checkbox' name='sist&reti' value='Sistemi e Reti'> SISTEMI E RETI</th>
                                 </tr>
                             </table>
                         </div>
@@ -61,47 +59,6 @@
                         <input class='btn-primary' style='border-radius: 5px;' type='submit' value='Esito Scrutinio'>
                         </div>
                     </form>
-                ";
-                $materie = array();
-                $nominativo = "";
-                //echo var_dump($_GET);
-                if (isset($_GET["name2"])) {
-                    $nominativo = $_GET["name"]. " " .$_GET["name2"]. " " .$_GET["surname"];
-                }elseif (!isset($_GET["name2"])) {
-                    $nominativo = $_GET["name"]. " " .$_GET["surname"];
-                }
-                
-                
-                if(isset($_GET["ita"])){
-                    $materie[$_GET["ita"]];
-                }elseif(isset($_GET["mate"])){
-                    $materie[$_GET["mate"]];
-                }elseif(isset($_GET["tel"])){
-                    $materie[$_GET["tel"]];
-                }elseif(isset($_GET["inf"])){
-                    $materie[$_GET["inf"]];
-                }elseif(isset($_GET["tpsit"])){
-                    $materie[$_GET["tpsit"]];
-                }elseif(isset($_GET["sist&reti"])){
-                    $materie[$_GET["sist&reti"]];
-                }elseif(isset($_GET["ing"])){
-                    $materie[$_GET["ing"]];
-                }
-                if(count($materie) >= 3){
-                    if (isset($_GET["male"])) {
-                        $studenti[$nominativo] = " non ammesso";
-                    }elseif(isset($_GET["female"])){
-                        $studenti[$nominativo] = " non ammessa";
-                    }
-                }elseif(count($materie) <= 2){
-                    if (isset($_GET["male"])) {
-                        $studenti[$nominativo] = " ammesso";
-                    }elseif(isset($_GET["female"])){
-                        $studenti[$nominativo] = " ammessa";
-                    }
-                }
-            ?>
-            
         </div>
     </body>
 </html>
