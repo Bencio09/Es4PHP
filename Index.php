@@ -3,7 +3,7 @@
     <head>
         <?php
             session_start();
-            //error_reporting(E_ALL & ~E_WARNING);
+            error_reporting(E_ALL & ~E_WARNING);
         ?>
         <link rel="stylesheet" href="CSS/bootstrap.css">
         <link rel="stylesheet" href="CSS/MyStyle.css">
@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="container" id="ins" style="margin-top: 10%;">
-                    <form action='./Function/MostraStudenti.php' method='GET'>
+                    <form action='./Pages/MostraStudenti.php' method='GET'>
                         <div style='margin-left: 25%;'>
                             <table>
                                 <tr>
@@ -35,10 +35,10 @@
                         <div style='margin-left: 25%;'>
                             <table>
                                 <tr>
-                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='M'> MASCHIO</th>
+                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='M' required> MASCHIO</th>
                                 </tr>
                                 <tr>
-                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='F'> FEMMINA</th>
+                                    <th style='border: 15px solid transparent;'><input type='radio' name='gender' value='F' required> FEMMINA</th>
                                 </tr>
                             </table>
                         </div>
